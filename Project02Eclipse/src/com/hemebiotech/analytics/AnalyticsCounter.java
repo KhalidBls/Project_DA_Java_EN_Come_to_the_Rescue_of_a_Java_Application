@@ -19,7 +19,7 @@ public class AnalyticsCounter {
 			ourTreatment.countSymptoms(symptomsFromFile.get(i));
 		}
 
-		System.out.println(ourTreatment.getDifferentSymptoms());
+		System.out.println(ourTreatment.differentSymptoms);
 		
 		//TEST
 		int total=0;
