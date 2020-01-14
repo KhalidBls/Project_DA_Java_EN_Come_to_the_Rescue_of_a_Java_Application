@@ -12,18 +12,18 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		// first get input
 		ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
-		List<String> symptomsFromFile = readData.GetSymptoms();
+		List<String> symptomsFromFile = readData.GetSymptoms();  
 		Treatment ourTreatment = new Treatment();
 		
-		for(int i = 0;i<symptomsFromFile.size();i++) {
+		for(int i = 0;i<symptomsFromFile.size();i++) {				
 			ourTreatment.countSymptoms(symptomsFromFile.get(i));
 		}
 
-		System.out.println(ourTreatment.differentSymptoms);
+		System.out.println(ourTreatment.getDifferentSymptoms());
 		
-		//TEST
+		//TEST PERSONNELS
 		int total=0;
-		for(Entry<String, Integer> element : ourTreatment.differentSymptoms.entrySet()) {
+		for(Entry<String, Integer> element : ourTreatment.getDifferentSymptoms().entrySet()) {
 			total+= element.getValue();
 		}
 		
