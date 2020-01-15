@@ -12,7 +12,7 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		// first get input
 		ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
-		List<String> symptomsFromFile = readData.GetSymptoms();  
+		List<String> symptomsFromFile = readData.getSymptoms();  
 		Treatment ourTreatment = new Treatment();
 		
 		for(int i = 0;i<symptomsFromFile.size();i++) {				

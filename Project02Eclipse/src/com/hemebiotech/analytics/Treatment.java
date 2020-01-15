@@ -15,9 +15,10 @@ public class Treatment {
 				this.differentSymptoms.replace(symptoms,this.differentSymptoms.get(symptoms)+1 );
 			}	
 	}
+	
+	//CREER UNE FONCTION QUI ORDONNE ELEMENTS PAR ORDRE ALPHABETIQUE et une fonction pour ecrire dans File
 
 	public Map<String, Integer> getDifferentSymptoms() {
 		return differentSymptoms;
 	}
-
 }
