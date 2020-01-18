@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Treatment {
-	public ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
-	public List<String> symptomsFromFile = readData.getSymptoms();  
+	private ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
+	private List<String> symptomsFromFile = readData.getSymptoms();  
 	private Map<String, Integer> differentSymptoms = new HashMap<>();
 	public List<String> listedByOrder = new ArrayList<String>();; 
 	
@@ -33,5 +35,18 @@ public class Treatment {
 	
 	public Map<String, Integer> getDifferentSymptoms() {
 		return differentSymptoms;
+	}
+	
+	public void writeElementInFile() throws IOException {
+		FileWriter writer = new FileWriter ("result.out");
+		for(int i =0;i<this.listedByOrder.size();i++) {
+			writer.write(this.listedByOrder.get(i)
+					+" : "
+					+this.getDifferentSymptoms().get(this.listedByOrder.get(i))
+					+"\n"
+					);
+		}
+		writer.close();
+		System.out.println("Le fichier a été enregistrer");
 	}
 }
