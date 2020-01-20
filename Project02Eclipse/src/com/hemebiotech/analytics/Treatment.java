@@ -12,9 +12,16 @@ public class Treatment {
 	private ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
 	private List<String> symptomsFromFile = readData.getSymptoms();  
 	private Map<String, Integer> differentSymptoms = new HashMap<>();
-	public List<String> listedByOrder = new ArrayList<String>();; 
+	private List<String> listedByOrder = new ArrayList<String>();; 
 	
-	public void countSymptoms(String symptoms) {
+	
+	/**
+	 * This method will save element as a key with a value which represent the number 
+	 * of symptoms(work like a counter)
+	 * 
+	 * @param symptoms
+	 */
+	private void countSymptoms(String symptoms) {
 		
 			if(!this.differentSymptoms.containsKey(symptoms)){
 				this.differentSymptoms.put(symptoms, 1);
@@ -24,8 +31,10 @@ public class Treatment {
 			}	
 	}
 	
-	//CREER UNE FONCTION QUI ORDONNE ELEMENTS PAR ORDRE ALPHABETIQUE et une fonction pour ecrire dans File
-
+	
+/**
+ * In this method, we will sort element by alphabetic order
+ */
 	public void sortElement() {
 		for(int i = 0;i<this.symptomsFromFile.size();i++) {				
 			this.countSymptoms(this.symptomsFromFile.get(i));
@@ -33,20 +42,20 @@ public class Treatment {
 		Collections.sort(this.listedByOrder);	//les trier par ordre alphabétique
 	}
 	
-	public Map<String, Integer> getDifferentSymptoms() {
-		return differentSymptoms;
-	}
-	
+	/**
+	 * This method will write in "result.out" file
+	 * @throws IOException
+	 */
 	public void writeElementInFile() throws IOException {
 		FileWriter writer = new FileWriter ("result.out");
 		for(int i =0;i<this.listedByOrder.size();i++) {
 			writer.write(this.listedByOrder.get(i)
 					+" : "
-					+this.getDifferentSymptoms().get(this.listedByOrder.get(i))
+					+this.differentSymptoms.get(this.listedByOrder.get(i))
 					+"\n"
 					);
 		}
 		writer.close();
-		System.out.println("Le fichier a été enregistrer");
+		System.out.println("Le fichier a bien été enregistré");
 	}
 }
