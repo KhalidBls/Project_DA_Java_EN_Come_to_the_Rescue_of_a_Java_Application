@@ -46,16 +46,21 @@ public class Treatment {
 	 * This method will write in "result.out" file
 	 * @throws IOException
 	 */
-	public void writeElementInFile() throws IOException {
-		FileWriter writer = new FileWriter ("result.out");
-		for(int i =0;i<this.listedByOrder.size();i++) {
-			writer.write(this.listedByOrder.get(i)
-					+" : "
-					+this.differentSymptoms.get(this.listedByOrder.get(i))
-					+"\n"
-					);
-		}
+	public void writeElementInFile(){
+		try {
+			FileWriter writer = new FileWriter ("result.out");
+			for(int i =0;i<this.listedByOrder.size();i++) {
+				writer.write(this.listedByOrder.get(i)
+						+" : "
+						+this.differentSymptoms.get(this.listedByOrder.get(i))
+						+"\n"
+						);
+			}
 		writer.close();
-		System.out.println("Le fichier a bien été enregistré");
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally {
+			System.out.println("Le fichier a bien été enregistré");
+		}
 	}
 }
