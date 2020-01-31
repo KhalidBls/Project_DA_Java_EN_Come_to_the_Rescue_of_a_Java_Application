@@ -47,20 +47,30 @@ public class Treatment {
 	 * @throws IOException
 	 */
 	public void writeElementInFile(){
-		try {
-			FileWriter writer = new FileWriter ("result.out");
-			for(int i =0;i<this.listedByOrder.size();i++) {
-				writer.write(this.listedByOrder.get(i)
-						+" : "
-						+this.differentSymptoms.get(this.listedByOrder.get(i))
-						+"\n"
-						);
+		if(this.symptomsFromFile.size()>0) {
+			try {
+				FileWriter writer = new FileWriter ("result.out");
+				for(int i =0;i<this.listedByOrder.size();i++) {
+					if(i==this.listedByOrder.size()-1) {
+						writer.write(this.listedByOrder.get(i)
+								+" = "
+								+this.differentSymptoms.get(this.listedByOrder.get(i))
+								+"."
+								);
+					}else {
+						writer.write(this.listedByOrder.get(i)
+								+" = "
+								+this.differentSymptoms.get(this.listedByOrder.get(i))
+								+";\n"
+								);
+					}
+				}
+				writer.close();
+			}catch(IOException e) {
+				e.printStackTrace();
+			}finally {
+				System.out.println("Le fichier a bien été enregistré");
 			}
-		writer.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}finally {
-			System.out.println("Le fichier a bien été enregistré");
 		}
 	}
 }
