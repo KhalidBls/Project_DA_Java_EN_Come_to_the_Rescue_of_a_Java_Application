@@ -15,6 +15,11 @@ public class Treatment {
 	private List<String> listedByOrder = new ArrayList<String>();; 
 	
 	
+	public Treatment() {
+		this.sortElement();	
+		this.writeElementInFile();
+	}
+	
 	/**
 	 * This method will save element as a key with a value which represent the number 
 	 * of symptoms(work like a counter)
