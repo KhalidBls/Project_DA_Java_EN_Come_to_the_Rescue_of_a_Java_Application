@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Treatment {
+	
 	private ReadSymptomDataFromFile readData = new ReadSymptomDataFromFile("symptoms.txt");
 	private List<String> symptomsFromFile = readData.getSymptoms();  
 	private Map<String, Integer> differentSymptoms = new HashMap<>();
-	private List<String> listedByOrder = new ArrayList<String>();; 
+	private List<String> listedByOrder = new ArrayList<String>(); //pour trier par ordre alphabétique ensuite
 	
 	
 	public Treatment() {
