@@ -4,6 +4,8 @@ package com.hemebiotech.analytics;
 public class AnalyticsCounter {
 		
 	public static void main(String args[]) throws Exception {		
-			new Treatment();
+			Treatment ourTreatment = new Treatment();
+			ourTreatment.sortElement();	
+			ourTreatment.writeElementInFile();
 		}		
 	}

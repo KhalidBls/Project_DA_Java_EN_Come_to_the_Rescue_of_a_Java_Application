@@ -15,11 +15,7 @@ public class Treatment {
 	private Map<String, Integer> differentSymptoms = new HashMap<>();
 	private List<String> listedByOrder = new ArrayList<String>(); //pour trier par ordre alphabétique ensuite
 	
-	
-	public Treatment() {
-		this.sortElement();	
-		this.writeElementInFile();
-	}
+
 	
 	/**
 	 * This method will save element as a key with a value which represent the number 
