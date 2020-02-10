@@ -45,7 +45,8 @@ public class Treatment {
 	}
 	
 	/**
-	 * This method will write in "result.out" file
+	 * This method will write in "result.out" file and if it's the last line it will finish
+	 * with a "." else it will finish with a ";" in the file
 	 * @throws IOException
 	 */
 	public void writeElementInFile(){
